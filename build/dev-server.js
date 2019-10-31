@@ -80,8 +80,8 @@ devMiddleware.waitUntilValid(() => {
   _resolve();
 });
 
-app.listen(config.port, () => {
-  console.log(`${config.env} server started on port ${config.port}`);
+app.listen(port, () => {
+  console.log(`${process.env.NODE_ENV} server started on port ${port}`);
 });
 
 module.exports = app;
