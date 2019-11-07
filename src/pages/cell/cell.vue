@@ -5,9 +5,9 @@
 </template>
 
 <script>
-import cell from "components/cell.vue";
+import cell from 'components/cell.vue';
 export default {
-  name: "app",
+  name: 'app',
   components: { cell }
 };
 </script>

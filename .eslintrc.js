@@ -4,10 +4,11 @@ module.exports = {
   root: true,
 
   //此项是用来指定eslint解析器的，解析器必须符合规则，babel-eslint解析器是对babel解析器的包装使其与ESLint解析
-  parser: 'babel-eslint',
+  // parser: 'babel-eslint',
 
   //此项是用来指定javaScript语言类型和风格，sourceType用来指定js导入的方式，默认是script，此处设置为module，指某块导入方式
   parserOptions: {
+    parser: "babel-eslint",
     // 设置 script(默认) 或 module，如果代码是在ECMASCRIPT中的模块
     sourceType: 'module',
     "ecmaVersion": 6,
@@ -26,10 +27,16 @@ module.exports = {
   },
   // https://github.com/standard/standard/blob/master/docs/RULES-en.md
   // 此项是用来配置标准的js风格，就是说写代码的时候要规范的写，如果你使用vs-code我觉得应该可以避免出错
-  extends: 'standard',//'vue',
+  // extends: 'standard',//'vue',
+  extends: [
+    'plugin:vue/essential',// 额外添加的规则可查看 https://vuejs.github.io/eslint-plugin-vue/rules/
+
+
+  ],
   // 此项是用来提供插件的，插件名称省略了eslint-plugin-，下面这个配置是用来规范html的
   plugins: [
-    'html',
+    // 'html',
+    'vue',
     "standard",
     "promise"
   ],
@@ -41,8 +48,7 @@ module.exports = {
     "error" -> 2 开启错误规则
   */
   rules: {
-    // 不需要
-    "space-before-function-paren": 0,  // 函数定义时括号前面要不要有空格
+
     "eol-last": 0,  // 文件以单一的换行符结束
     // "no-extra-semi": 0, // 可以多余的冒号
     // "semi": 0,  // 语句可以不需要分号结尾
@@ -58,7 +64,13 @@ module.exports = {
     "complexity": [1, 10], // 循环复杂度
     "no-unused-vars": 1, // 不能有声明后未被使用的变量或参数
     // vue
-    // "flow-vars/define-flow-type": 1,
+    'vue/no-parsing-error': 'error',// 禁止出现语法错误
+    'vue/valid-v-bind': 'error',// v-bind 指令必须合法
+    'vue/valid-v-cloak': 'error', // v-cloak 指令必须合法
+    'vue/valid-template-root': 'error',// template 的根节点必须合法
+    'vue/html-quotes': 'error', // html 属性值必须用双引号括起来
+    "vue/prop-name-casing": ["error", "camelCase"],
+
     // "flow-vars/use-flow-type": 1,
 
     // // react
@@ -83,6 +95,7 @@ module.exports = {
     "no-shadow-restricted-names": 2, // 严格模式中规定的限制标识符不能作为声明时的变量名使用
     "no-cond-assign": 2, // 禁止在条件表达式中使用赋值语句
     "no-native-reassign": 2, // 不能重写native对象
+    "no-trailing-spaces": 2,//一行结束后面不要有空格
     "semi": [2, "always"], //强制语句分号结尾
 
     // 代码风格
@@ -115,7 +128,7 @@ module.exports = {
       "allowShortCircuit": true,
       "allowTernary": true
     }],
-    "no-useless-call": 2, // 禁止不必要的call和apply
+    // "no-useless-call": 2, // 禁止不必要的call和apply
     "no-useless-concat": 2,
     "no-var": 2, // 要求使用 let 或 const 而不是 var
     "no-void": 2, // 禁用void操作符
@@ -133,6 +146,7 @@ module.exports = {
      "spaced-comment": [2, "always", {
       "markers": ["global", "globals", "eslint", "eslint-disable", "*package", "!"]
   }],
+    "space-before-function-paren": 2,  // 函数定义时括号前面要不要有空格
     "curly": 1, // 必须使用 if(){} 中的{}
     'quotes': [2, 'single'], // js必须使用单引号
 

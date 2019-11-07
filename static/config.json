@@ -1,0 +1,12 @@
+{
+  "log": "false",
+  "COM": "COM3",
+  "baudRate": 9600,
+  "dataBits": 8,
+  "parity": "none",
+  "stopBits": 1,
+  "autoOpen": false,
+  "defaultScreenIndex": "3",
+  "SERVER_REQUEST_URL": "http://172.22.114.5:7001",
+  "SERVER_USE_CONFIG": "false"
+}
