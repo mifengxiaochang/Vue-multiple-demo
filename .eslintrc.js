@@ -53,7 +53,6 @@ module.exports = {
     // "no-extra-semi": 0, // 可以多余的冒号
     // "semi": 0,  // 语句可以不需要分号结尾
     // "eqeqeq": 0, // 必须使用全等
-    "one-var": 0, // 连续声明
     "no-undef": 0, // 可以 有未定义的变量
 
     // 警告
@@ -63,6 +62,8 @@ module.exports = {
     "no-use-before-define": [1, "nofunc"], // 未定义前不能使用
     "complexity": [1, 10], // 循环复杂度
     "no-unused-vars": 1, // 不能有声明后未被使用的变量或参数
+    "one-var": 1, // 连续声明
+    "sort-vars": 1,//变量声明时排序
     // vue
     'vue/no-parsing-error': 'error',// 禁止出现语法错误
     'vue/valid-v-bind': 'error',// v-bind 指令必须合法
