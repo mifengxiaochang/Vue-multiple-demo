@@ -1,0 +1,11 @@
+{
+  "headerMsg": {
+    "headerMsg": {
+      "left": { "isShow": false, "flag": false },
+      "title": { "title": "机票搜索", "state": "default" },
+      "right": { "isShow": true },
+      "inSigninTitle": "tap",
+      "addCoupon": false
+    }
+  }
+}

@@ -3,8 +3,11 @@
 import Vue from 'vue';
 import App from './index.vue';
 import router from './router';
+import '@/assets/css/common.css';
+import '@/mock';
 
-Vue.config.productionTip = false;
+
+// Vue.config.productionTip = false;
 
 /* eslint-disable no-new */
 new Vue({

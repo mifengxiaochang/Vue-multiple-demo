@@ -60,7 +60,7 @@ module.exports = {
     "no-extra-parens": 1, // 非必要的括号
     "no-empty": 1, // 块语句中的内容不能为空
     "no-use-before-define": [1, "nofunc"], // 未定义前不能使用
-    "complexity": [1, 10], // 循环复杂度
+    // "complexity": [1, 10], // 循环复杂度
     "no-unused-vars": 1, // 不能有声明后未被使用的变量或参数
     "one-var": 1, // 连续声明
     "sort-vars": 1,//变量声明时排序
@@ -135,10 +135,10 @@ module.exports = {
     "no-void": 2, // 禁用void操作符
     "no-with": 2, // 禁用with
     "space-infix-ops": 2, // 中缀操作符周围要不要有空格
-    "valid-jsdoc": [2, { // jsdoc规则
-      "requireParamDescription": true,
-      "requireReturnDescription": true
-    }],
+    // "valid-jsdoc": [2, { // jsdoc规则
+    //   "requireParamDescription": true,
+    //   "requireReturnDescription": true
+    // }],
     "no-warning-comments": [2, {  //不能有警告备注
       "terms": ["todo", "fixme", "any other term"],
       "location": "anywhere"
@@ -147,7 +147,6 @@ module.exports = {
      "spaced-comment": [2, "always", {
       "markers": ["global", "globals", "eslint", "eslint-disable", "*package", "!"]
   }],
-    "space-before-function-paren": 2,  // 函数定义时括号前面要不要有空格
     "curly": 1, // 必须使用 if(){} 中的{}
     'quotes': [2, 'single'], // js必须使用单引号
 
