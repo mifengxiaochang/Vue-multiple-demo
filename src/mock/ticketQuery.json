@@ -7,5 +7,30 @@
       "inSigninTitle": "tap",
       "addCoupon": false
     }
-  }
+  },
+  "passengerInfo": {
+    "commonlyPassenger": [
+      {
+        "name": "xiaosha",
+        "cardType": "ID",
+        "cardNum": 21010233302920202
+      },
+      {
+        "name": "xiaoli",
+        "cardType": "PA",
+        "cardNum": 123
+      }
+    ],
+    "cardList": [
+      { "indexId": 0, "type": "ID Card", "key": "ID" },
+      { "indexId": 1, "type": "PassPord", "key": "PA" },
+      { "indexId": 2, "type": "pliceman", "key": "PL" }
+    ]
+  },
+  "passengerData": [
+    {
+      "title": "旅客一"
+    },
+    { "title": "旅客二" }
+  ]
 }

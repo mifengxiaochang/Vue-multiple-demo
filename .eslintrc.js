@@ -62,7 +62,7 @@ module.exports = {
     "no-use-before-define": [1, "nofunc"], // 未定义前不能使用
     // "complexity": [1, 10], // 循环复杂度
     "no-unused-vars": 1, // 不能有声明后未被使用的变量或参数
-    "one-var": 1, // 连续声明
+    "one-var": ["warn","never"], // 连续声明
     "sort-vars": 1,//变量声明时排序
     // vue
     'vue/no-parsing-error': 'error',// 禁止出现语法错误

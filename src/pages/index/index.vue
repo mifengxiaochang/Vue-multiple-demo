@@ -1,6 +1,6 @@
 <template>
   <div id="App" class="container">
-    <headers :headerMsg="headerMsg" @showList="handleShowList"></headers>
+    <headers :headerMsg="headerMsg" @showList="handleIsShowList"></headers>
     <!-- 被缓存的视图组件-->
     <!-- <keep-alive>
       <router-view v-if="$route.meta.keepAlive"></router-view>
@@ -35,10 +35,27 @@
           <i class="trpfont" :class="item.fontClass"></i>
           {{item.text}}
         </li>
-
-        <!-- <li v-tap="{methods:linkto}" data-tag="TicketQuery"><i class="trpfont TRP-shouye"></i> 首页</li>
-        <li v-tap="{methods:linkto}" data-tag="SignIn"><i class="trpfont TRP-tuichu"></i>登录</li>-->
       </ul>
+    </div>
+    <!-- 填写行程信息 -->
+    <div>
+      行程信息
+      <div v-for="(passenger,index) in passengerData" :key="passenger.id">
+        <div>{{`${passenger.title}${index}` }}</div>
+        <select @change="handdleCommonlySelect(index,$event)" v-model="passenger.commonlySelected">
+          <option
+            v-for="item in commonlyPassenger"
+            :key="item.indexId"
+            :value="item.indexId"
+          >{{item.name}}</option>
+        </select>
+        <input v-model="passenger.pName" />
+        <!-- 身份证选择 -->
+        <select v-model="passenger.type">
+          <option v-for="card in cardList" :key="card.indexId" :value="card.indexId">{{card.type}}</option>
+        </select>
+        <input v-model="passenger.pNumber" />
+      </div>
     </div>
   </div>
 </template>
@@ -59,13 +76,33 @@ export default {
         inSigninTitle: '',
         addCoupon: false
       },
+      passengerData: [
+        {
+          title: '',
+          commonlySelected: '',
+          pName: '',
+          type: '',
+          pNumber: ''
+        }
+      ],
+      commonlyPassenger: [
+        {
+          indexId: 0,
+          name: 'please select',
+          cardType: '',
+          cardNum: ''
+        }
+      ],
+      cardList: [],
       routerConfig: ROUTER_CONFIG_ENUM,
-      menuIsShow: false
+      menuIsShow: false,
+      signInState: '',
+      menuList: []
     };
   },
   components: { headers },
   methods: {
-    handleShowList: function() {
+    handleIsShowList: function() {
       console.log('this.routerconfig', this.routerConfig.right);
       if (this.routerConfig.right.isShow) {
         // this.$router.push({name:'First'});
@@ -75,13 +112,67 @@ export default {
     getHeaderMsg: function() {
       const vm = this;
       fetch.get('/api/test/getHeader').then(res => {
-        console.log('res', res);
         vm.headerMsg = res.headerMsg;
       });
+    },
+    getPassengerData: function() {
+      const vm = this;
+      fetch.get('/api/test/getPassengerData').then(res => {
+        let passengerList = [];
+        res.forEach(passenger => {
+          passengerList.push({
+            title: passenger.title,
+            commonlySelected: '',
+            pName: '',
+            type: '',
+            pNumber: ''
+          });
+        });
+        vm.passengerData = passengerList;
+      });
+    },
+    getPassengerInfo: function() {
+      const vm = this;
+      fetch.get('/api/test/getPassengerInfo').then(res => {
+        const { commonlyPassenger } = res;
+        vm.commonlyPassenger.concat(commonlyPassenger);
+        commonlyPassenger.forEach((item, index) => {
+          vm.commonlyPassenger.push({
+            indexId: index + 1,
+            name: item.name,
+            cardType: item.cardType,
+            cardNum: item.cardNum
+          });
+        });
+        vm.cardList = res.cardList;
+      });
+    },
+    getAllData: function() {
+      this.getHeaderMsg();
+      this.getPassengerInfo();
+      this.getPassengerData();
+    },
+    hideShade: function() {
+      this.handleIsShowList();
+    },
+    handdleCommonlySelect: function(index, e) {
+      const selectNum = e.target.value;
+      const selectedList = this.commonlyPassenger[selectNum];
+      this.passengerData[index].pNumber = selectedList.cardNum;
+      if (selectNum !== '0') {
+        const selectedType = this.cardList.find(
+          card => card.key === selectedList.cardType
+        );
+        this.passengerData[index].pName = selectedList.name;
+        this.passengerData[index].type = selectedType.indexId;
+      } else {
+        this.passengerData[index].pName = '';
+        this.passengerData[index].type = '';
+      }
     }
   },
   mounted: function() {
-    this.getHeaderMsg();
+    this.getAllData();
   }
 };
 </script>
