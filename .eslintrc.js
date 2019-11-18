@@ -33,7 +33,7 @@ module.exports = {
 
 
   ],
-  // 此项是用来提供插件的，插件名称省略了eslint-plugin-，下面这个配置是用来规范html的
+  // 此项是用来提供插件的，插件名称省略了eslint-plugin-
   plugins: [
     // 'html',
     'vue',

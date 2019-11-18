@@ -38,6 +38,7 @@
       </ul>
     </div>
     <!-- 填写行程信息 -->
+
     <div>
       行程信息
       <div v-for="(passenger,index) in passengerData" :key="passenger.id">
