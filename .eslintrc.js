@@ -64,6 +64,8 @@ module.exports = {
     "no-unused-vars": 1, // 不能有声明后未被使用的变量或参数
     "one-var": ["warn","never"], // 连续声明
     "sort-vars": 1,//变量声明时排序
+    "space-before-blocks":1,
+    "object-curly-spacing":1,
     // vue
     'vue/no-parsing-error': 'error',// 禁止出现语法错误
     'vue/valid-v-bind': 'error',// v-bind 指令必须合法
@@ -79,6 +81,7 @@ module.exports = {
     // "react/jsx-uses-vars": 2,
 
     // 错误
+    "brace-style": ["error", "1tbs"],
     "comma-dangle": [2, "never"], // 对象字面量项尾不能有逗号
     "eqeqeq": [2, "allow-null"],// 使用 === 替代 == allow-null允许null和undefined==
     "no-debugger": 2, // 禁止使用debugger
@@ -100,7 +103,7 @@ module.exports = {
     "semi": [2, "always"], //强制语句分号结尾
 
     // 代码风格
-    "no-else-return": 1, // 如果if语句里面有return,后面不能跟else语句
+    "indent": ["error", 2],
     "no-extra-semi": 2, // 禁止不必要的分号
     "no-multi-spaces": 1, // 不能用多余的空格
     "key-spacing": [1, {  // 对象字面量中冒号的前后空格
@@ -110,6 +113,9 @@ module.exports = {
     "block-scoped-var": 2, // 块语句中使用var
     "consistent-return": 2, // return 后面是否允许省略要么总是指定返回的值，要么不指定
     "accessor-pairs": 2, // 在对象中使用getter/setter
+    "keyword-spacing": [2, {"overrides": {
+      "for": {"after": true},
+    }}],
     "dot-location": [2, "property"], // 对象访问符的位置，换行的时候在行首还是行尾
     "no-lone-blocks": 2, // 禁止不必要的嵌套块
     "no-labels": 2, // 禁止标签声明

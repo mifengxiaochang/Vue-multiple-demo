@@ -1,0 +1,37 @@
+{"locations": {
+  "location": [
+    {
+      "name":"重庆",
+      "code":"CKG",
+      "hot": true,
+      "foreign": false,
+      "continent":"亚洲",
+      "group":"ABCDE"
+    },
+    {
+      "name":"福州",
+      "code":"FOC",
+      "hot": true,
+      "foreign": false,
+      "continent":"亚洲",
+      "group":"FGHIJ"
+    },
+    {
+      "name":"拉萨",
+      "code":"LXA",
+      "hot": true,
+      "foreign": false,
+      "continent":"亚洲",
+      "group":"KLMNP"
+    },
+    {
+      "name":"天津",
+      "code":"TSN",
+      "hot": true,
+      "foreign": false,
+      "continent":"亚洲",
+      "group":"QRSTU"
+    }
+  ]
+}
+}

@@ -1,0 +1,59 @@
+<html>
+<template>
+  <div id="queryDynamic" class="container">
+    <div class="form-trend">
+      <h2 class="con-tit">航班动态</h2>
+      <div class="row">
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <a class="btn-select select-type">
+            <div class="select-box active">
+              <div class="select-title">查询条件</div>
+              <div class="select-text">按行程查询</div>
+              <i class="icon icon-arrowdown"></i>
+            </div>
+            <select class="select-ops" v-model="selectType">
+              <option v-for="option in queryTypeOpions" :value="option.value" :key="option.value">{option.text}</option>
+            </select>
+          </a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-route col-md-4 col-sm-6 col-xs-12" v-if="selectType === '1'">
+          <div class="input-group">
+            <input class="text" type="text" placeholder="出发城市" placeholder-data="出发城市" :value="departureCity">
+            <span class="input-info">出发城市</span>
+          </div>
+        </div>
+        <div class="col-route col-md-4 col-sm-6 col-xs-12">
+          <div class="input-group">
+            <input class="text" type="text" placeholder="到达城市" placeholder-data="到达城市" :value="arrivalCity.text">
+            <span class="input-info">到达城市</span>
+          </div>
+        </div>
+        <div class="col-flight hidden col-md-4 col-sm-6 col-xs-12">
+          <div class="input-group">
+            <input class="text" type="text" placeholder="航班号" placeholder-data="航班号" :value="flightNum">
+            <span class="input-info">航班号</span>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <div class="input-group">
+            <input class="text input-filled" type="text" placeholder="出发日期" placeholder-data="出发日期"
+              :value="departureDate|2018-1-15">
+            <span class="input-info input-filled">出发日期</span>
+          </div>
+        </div>
+      </div>
+      <div class="row row-b">
+        <div class="col-sm-3 col-xs-12">
+          <a class="btn btn-primary">查询</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mB80">
+    </div>
+  </div>
+</template>
+
+</html>
